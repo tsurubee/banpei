@@ -4,14 +4,18 @@ from scipy import stats
 def hotelling_1d(data, threshold):
     """
     Parameters
-        ----------
-        data : Numpy array
-        threshold : float
+    ----------
+    data : array_like
+           Input array or object that can be converted to an array.
+    threshold : float
 
     Returns
     -------
-        List of tuples where each tuple contains index number and anomalous value.
+    List of tuples where each tuple contains index number and anomalous value.
     """
+    if not isinstance(data, np.ndarray):
+        data = np.array(data)
+
     #Set the threshold of abnormality
     abn_th = stats.chi2.interval(1-threshold, 1)[1]
 
