@@ -1,6 +1,7 @@
 import numpy as np
 from scipy import stats
 
+
 def hotelling_1d(data, threshold):
     """
     Parameters
@@ -16,15 +17,15 @@ def hotelling_1d(data, threshold):
     if not isinstance(data, np.ndarray):
         data = np.array(data)
 
-    #Set the threshold of abnormality
+    # Set the threshold of abnormality
     abn_th = stats.chi2.interval(1-threshold, 1)[1]
 
-    #Covert raw data into the degree of abnormality
+    # Covert raw data into the degree of abnormality
     avg = np.average(data)
     var = np.var(data)
     data_abn = [(x - avg)**2 / var for x in data]
 
-    #Abnormality determination
+    # Abnormality determination
     result = []
     for (index, x) in enumerate(data_abn):
         if x > abn_th:
