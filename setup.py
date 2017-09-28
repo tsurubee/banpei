@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='anomaly_detector',
+    name='banpei',
     version='0.0.1',
     description='Anomaly detection library with Python',
     author='Hirofumi Tsuruta',

@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from anomaly_detector import hotelling
+from banpei import hotelling
 
 
 class TestHotelling(unittest.TestCase):
