@@ -13,7 +13,7 @@ def extract_matrix(data, start, end, w):
     return matrix
 
 
-def sst(data, w, m):
+def sst(data, w, m=2, k=None, L=None):
     """
     Parameters
     ----------
@@ -28,10 +28,15 @@ def sst(data, w, m):
     -------
     Numpy array contains the degree of change.
     """
-    # initialize variables
-    k = w // 2
-    L = k // 2
+    # set variables
+    if k is None:
+        k = w // 2
+
+    if L is None:
+        L = k // 2
+
     T = len(data)
+
     if not isinstance(data, np.ndarray):
         data = np.array(data)
 
@@ -39,6 +44,7 @@ def sst(data, w, m):
     start_cal = k + w
     end_cal = T - L + 1
 
+    # calculate the degree of change
     change_scores = np.zeros(len(data))
     for t in range(start_cal, end_cal + 1):
         # trajectory matrix
