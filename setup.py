@@ -8,6 +8,7 @@ setup(
     packages=find_packages(exclude=('tests', 'docs')),
     include_package_data=True,
     test_suite='tests',
-    install_requires=[
-    ]
+    install_requires=['numpy',
+                      'pandas',
+                      'scipy']
 )
