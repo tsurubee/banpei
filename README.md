@@ -2,6 +2,9 @@
 Banpei is a Python package of the anomaly detection.  
 Anomaly detection is a technique used to identify unusual patterns that do not conform to expected behavior.
 
+## System
+Python 3.x (2.x is not supported)
+
 ## Installation
 Use the command:
 ```bash
