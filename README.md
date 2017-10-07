@@ -10,7 +10,8 @@ $ cd banpei
 $ pip install banpei
 ```
 After installation, you can import banpei in Python.
-```python
+```
+$ python
 >>> import banpei
 ```
 
