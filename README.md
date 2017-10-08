@@ -18,6 +18,18 @@ $ python
 >>> import banpei
 ```
 
+## Usage
+#### Example
+*Singular spectrum transformation(sst)*
+```python
+import banpei 
+model   = banpei.SST(data, w=50)
+results = model.detect()
+```
+The graph below shows the change-point scoring calculated by sst for the periodic data. (The data used is placed in '/tests/test_data/periodic_wave.csv')
+
+![sst example](./docs/images/sst_example.png)
+
 ## The implemented algorithm
 #### Outlier detection
 * Hotelling's theory
