@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from banpei import hotelling
+from banpei.hotelling import Hotelling
 
 
 class TestHotelling(unittest.TestCase):
@@ -9,10 +9,11 @@ class TestHotelling(unittest.TestCase):
         self.data = pd.read_csv('tests/test_data/davis.csv')
         self.data_1d = self.data['weight']
 
-    def test_hotelling_1d(self):
+    def test_hotelling(self):
         expected = 2
-        result = hotelling.hotelling_1d(self.data_1d, 0.01)
-        self.assertEqual(expected, len(result))
+        model = Hotelling(self.data_1d, 0.01)
+        results = model.detect()
+        self.assertEqual(expected, len(results))
 
 
 if __name__ == "__main__":
