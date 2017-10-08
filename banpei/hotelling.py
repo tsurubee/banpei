@@ -5,17 +5,18 @@ from banpei.base.model import Model
 
 class Hotelling(Model):
     def __init__(self, data, threshold):
-        super().__init__(data)
-        self.threshold = threshold
-
-    def detect(self):
         """
         Parameters
         ----------
         data : array_like
                Input array or object that can be converted to an array.
         threshold : float
+        """
+        super().__init__(data)
+        self.threshold = threshold
 
+    def detect(self):
+        """
         Returns
         -------
         List of tuples where each tuple contains index number and anomalous value.

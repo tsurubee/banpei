@@ -4,6 +4,14 @@ from banpei.base.model import Model
 
 class SST(Model):
     def __init__(self, data, w):
+        """
+        Parameters
+        ----------
+        data : array_like
+               Input array or object that can be converted to an array.
+        w    : int
+               Window size
+        """
         super().__init__(data)
         self.w = w
 
@@ -22,10 +30,6 @@ class SST(Model):
         """
         Parameters
         ----------
-        data : array_like
-               Input array or object that can be converted to an array.
-        w    : int
-               Window size
         m    : int
                Number of basis vectors
 

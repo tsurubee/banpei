@@ -26,9 +26,11 @@ import banpei
 model   = banpei.SST(data, w=50)
 results = model.detect()
 ```
-The graph below shows the change-point scoring calculated by sst for the periodic data. (The data used is placed in '/tests/test_data/periodic_wave.csv')
+The graph below shows the change-point scoring calculated by sst for the periodic data. (The data used is placed as '/tests/test_data/periodic_wave.csv')
 
-![sst example](./docs/images/sst_example.png)
+![sst example](./docs/images/sst_example.png =100px)
+<img src="https://cloud.githubusercontent.com/assets/1001444/18318574/2570ad98-755d-11e6-9581-5d95aec7bb9.png" width="320px">
+<img src='./docs/images/sst_example.png'>
 
 ## The implemented algorithm
 #### Outlier detection
