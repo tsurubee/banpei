@@ -28,7 +28,7 @@ results = model.detect()
 ```
 The graph below shows the change-point scoring calculated by sst for the periodic data. (The data used is placed as '/tests/test_data/periodic_wave.csv')
 
-<img src="./docs/images/sst_example.png" alt="sst_example" width="450">
+<img src="./docs/images/sst_example.png" alt="sst_example" width="700">
 
 ## The implemented algorithm
 #### Outlier detection
