@@ -10,8 +10,8 @@ class TestSST(unittest.TestCase):
         self.data = self.raw_data['y']
 
     def test_sst(self):
-        model = SST(self.data, 50)
-        results = model.detect()
+        model = SST()
+        results = model.detect(self.data, 50)
         self.assertEqual(len(self.data), len(results))
 
 

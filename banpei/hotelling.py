@@ -4,25 +4,22 @@ from banpei.base.model import Model
 
 
 class Hotelling(Model):
-    def __init__(self, data, threshold):
+    def __init__(self):
+        pass
+
+    def detect(self, data, threshold):
         """
         Parameters
         ----------
         data : array_like
                Input array or object that can be converted to an array.
         threshold : float
-        """
-        super().__init__(data)
-        self.threshold = threshold
 
-    def detect(self):
-        """
         Returns
         -------
         List of tuples where each tuple contains index number and anomalous value.
         """
-        data = self.data
-        threshold = self.threshold
+        data = self.convert_to_nparray(data)
 
         # Set the threshold of abnormality
         abn_th = stats.chi2.interval(1-threshold, 1)[1]

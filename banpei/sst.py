@@ -3,17 +3,8 @@ from banpei.base.model import Model
 
 
 class SST(Model):
-    def __init__(self, data, w):
-        """
-        Parameters
-        ----------
-        data : array_like
-               Input array or object that can be converted to an array.
-        w    : int
-               Window size
-        """
-        super().__init__(data)
-        self.w = w
+    def __init__(self):
+        pass
 
     def _extract_matrix(self, data, start, end, w):
         row = w
@@ -26,20 +17,27 @@ class SST(Model):
 
         return matrix
 
-    def detect(self, m=2, k=None, L=None):
+    def detect(self, data, w, m=2, k=None, L=None):
         """
         Parameters
         ----------
+        data : array_like
+               Input array or object that can be converted to an array.
+        w    : int
+               Window size
         m    : int
                Number of basis vectors
+        k    : int
+               Number of columns for the trajectory and test matrices
+        L    : int
+               Lag time
 
         Returns
         -------
         Numpy array contains the degree of change.
         """
         # Set variables
-        data = self.data
-        w = self.w
+        data = self.convert_to_nparray(data)
         if k is None:
             k = w // 2
         if L is None:

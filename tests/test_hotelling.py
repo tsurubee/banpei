@@ -11,8 +11,8 @@ class TestHotelling(unittest.TestCase):
 
     def test_hotelling(self):
         expected = 2
-        model = Hotelling(self.data_1d, 0.01)
-        results = model.detect()
+        model = Hotelling()
+        results = model.detect(self.data_1d, 0.01)
         self.assertEqual(expected, len(results))
 
 

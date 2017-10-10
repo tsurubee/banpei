@@ -23,8 +23,8 @@ $ python
 *Singular spectrum transformation(sst)*
 ```python
 import banpei 
-model   = banpei.SST(data, w=50)
-results = model.detect()
+model   = banpei.SST()
+results = model.detect(data, w=50)
 ```
 The graph below shows the change-point scoring calculated by sst for the periodic data. (The data used is placed as '/tests/test_data/periodic_wave.csv')
 
