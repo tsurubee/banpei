@@ -10,7 +10,7 @@ Use the command:
 ```bash
 $ git clone https://github.com/tsurubee/banpei.git
 $ cd banpei
-$ pip install banpei
+$ pip install .
 ```
 After installation, you can import banpei in Python.
 ```
