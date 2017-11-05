@@ -6,17 +6,6 @@ class SST(Model):
     def __init__(self):
         pass
 
-    def _extract_matrix(self, data, start, end, w):
-        row = w
-        column = end - start + 1
-        matrix = np.empty((row, column))
-        i = 0
-        for t in range(start, end+1):
-            matrix[:, i] = data[t-1:t-1+row]
-            i += 1
-
-        return matrix
-
     def detect(self, data, w, m=2, k=None, L=None):
         """
         Parameters
@@ -66,7 +55,18 @@ class SST(Model):
             U_test, _, _ = np.linalg.svd(test_matrix, full_matrices=False)
             U_tra_m  = U_tra[:, :m]
             U_test_m = U_test[:, :m]
-            _, s, _ = np.linalg.svd(np.dot(U_tra_m.T, U_test_m), full_matrices=False)
-            change_scores[t] = 1 - s[0] ** 2
+            s = np.linalg.svd(np.dot(U_tra_m.T, U_test_m), full_matrices=False, compute_uv=False)
+            change_scores[t] = 1 - s[0]
 
         return change_scores
+
+    def _extract_matrix(self, data, start, end, w):
+        row = w
+        column = end - start + 1
+        matrix = np.empty((row, column))
+        i = 0
+        for t in range(start, end+1):
+            matrix[:, i] = data[t-1:t-1+row]
+            i += 1
+
+        return matrix
