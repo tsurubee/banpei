@@ -33,6 +33,10 @@ class SST(Model):
             L = k // 2
         T = len(data)
 
+        # Check the size of input data
+        if not len(data) > L + w + k - 2:
+            raise ValueError("Input data is to small.")
+
         # Calculation range
         start_cal = k + w
         end_cal = T - L + 1
