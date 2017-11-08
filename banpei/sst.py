@@ -54,15 +54,18 @@ class SST(Model):
             end_test = end_tra + L
             test_matrix = self._extract_matrix(data, start_test, end_test, w)
 
-            # Singular value decomposition(SVD)
-            U_tra, _, _  = np.linalg.svd(tra_matrix, full_matrices=False)
-            U_test, _, _ = np.linalg.svd(test_matrix, full_matrices=False)
-            U_tra_m  = U_tra[:, :m]
-            U_test_m = U_test[:, :m]
-            s = np.linalg.svd(np.dot(U_tra_m.T, U_test_m), full_matrices=False, compute_uv=False)
-            change_scores[t] = 1 - s[0]
+            # Calculate the score by singular value decomposition(SVD)
+            change_scores[t] = self._calculate_score(tra_matrix, test_matrix, m)
 
         return change_scores
+
+    def _calculate_score(self, tra_matrix, test_matrix, m):
+        U_tra, _, _ = np.linalg.svd(tra_matrix, full_matrices=False)
+        U_test, _, _ = np.linalg.svd(test_matrix, full_matrices=False)
+        U_tra_m = U_tra[:, :m]
+        U_test_m = U_test[:, :m]
+        s = np.linalg.svd(np.dot(U_tra_m.T, U_test_m), full_matrices=False, compute_uv=False)
+        return 1 - s[0]
 
     def _extract_matrix(self, data, start, end, w):
         row = w
