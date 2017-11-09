@@ -17,7 +17,7 @@ class TestSST(unittest.TestCase):
     def test_stream_detect(self):
         model = SST(w=50)
         result = model.stream_detect(self.data)
-        self.assertEqual(len(result), 2)
+        self.assertIsInstance(result, float)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 import numpy as np
 from scipy import stats
-from banpei.base.model import Model
+from banpei.base.model import BaseModel
 
 
-class Hotelling(Model):
+class Hotelling(BaseModel):
     def __init__(self):
         pass
 
