@@ -30,6 +30,13 @@ The graph below shows the change-point scoring calculated by sst for the periodi
 
 <img src="./docs/images/sst_example.png" alt="sst_example" width="700">
 
+## Real-time monitoring with Bokeh
+Banpei is developed with the goal of constructing the environment of real-time abnormality monitoring.  In order to achieve the goal, Banpei has the function corresponded to the streaming data.  With the help of Bokeh, which is great visualization library, we can construct the simple monitoring tool.   
+Here's a simple demonstration movie of change-point detection of the data trends.
+
+[![sst detection](https://img.youtube.com/vi/7_woubLAhXk/0.jpg)](https://www.youtube.com/watch?v=7_woubLAhXk)  
+https://youtu.be/7_woubLAhXk
+
 ## The implemented algorithm
 #### Outlier detection
 * Hotelling's theory
