@@ -35,7 +35,8 @@ Banpei is developed with the goal of constructing the environment of real-time a
 Here's a simple demonstration movie of change-point detection of the data trends.
 
 [![sst detection](https://img.youtube.com/vi/7_woubLAhXk/0.jpg)](https://www.youtube.com/watch?v=7_woubLAhXk)  
-https://youtu.be/7_woubLAhXk
+https://youtu.be/7_woubLAhXk  
+The sample code how to construct real-time monitoring environment is placed in '/demo' folder.
 
 ## The implemented algorithm
 #### Outlier detection
