@@ -26,9 +26,18 @@ import banpei
 model   = banpei.SST(w=50)
 results = model.detect(data)
 ```
-The graph below shows the change-point scoring calculated by sst for the periodic data. (The data used is placed as '/tests/test_data/periodic_wave.csv')
+The input 'data' must be one-dimensional array-like object containing a sequence of values.  
+The output 'results' is Numpy array with the same size as input data.  
+The graph below shows the change-point scoring calculated by sst for the periodic data.
 
 <img src="./docs/images/sst_example.png" alt="sst_example" width="700">
+
+The data used is placed as '/tests/test_data/periodic_wave.csv'.  You can read a CSV file using the following code.  
+```python
+import pandas as pd
+raw_data = pd.read_csv('./tests/test_data/periodic_wave.csv')
+data = raw_data['y']
+```
 
 ## Real-time monitoring with Bokeh
 Banpei is developed with the goal of constructing the environment of real-time abnormality monitoring.  In order to achieve the goal, Banpei has the function corresponded to the streaming data.  With the help of Bokeh, which is great visualization library, we can construct the simple monitoring tool.   
