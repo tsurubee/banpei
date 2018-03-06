@@ -47,7 +47,7 @@ class SST(BaseModel):
 
         # Check the size of input data
         if not len(data) > self.L + self.w + self.k - 2:
-            raise ValueError("Input data is to small.")
+            raise ValueError("Input data is too small.")
 
         # Calculation range
         start_cal = self.k + self.w
