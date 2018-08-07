@@ -8,6 +8,8 @@ class BaseModel(object):
     def convert_to_nparray(self, data):
         if not isinstance(data, np.ndarray):
             return np.array(data)
+        else:
+            return data
 
     def detect(self, *args):
         """
