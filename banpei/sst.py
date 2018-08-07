@@ -121,5 +121,5 @@ class SST(BaseModel):
         return 1 - s[0]
 
     def _extract_matrix(self, data, start, end, w):
-        matrix = self.rolling_window(data[start - 1:end - 1 + w], w).T
+        matrix = rolling_window(data[start - 1:end - 1 + w], w).T
         return matrix
