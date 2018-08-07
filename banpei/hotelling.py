@@ -22,7 +22,7 @@ class Hotelling(BaseModel):
         data = self.convert_to_nparray(data)
 
         # Set the threshold of abnormality
-        abn_th = stats.chi2.interval(1-threshold, 1)[1]
+        abn_th = stats.chi2.interval(1 - threshold, 1)[1]
 
         # Covert raw data into the degree of abnormality
         avg = np.average(data)
@@ -30,8 +30,7 @@ class Hotelling(BaseModel):
         data_abn = [(x - avg)**2 / var for x in data]
 
         # Abnormality determination
-        result = []
-        for (index, x) in enumerate(data_abn):
-            if x > abn_th:
-                result.append((index, data[index]))
+        result = np.full_like(data, np.nan)
+        tf_ind = data_abn > abn_th
+        result[tf_ind] = data[tf_ind]
         return result
