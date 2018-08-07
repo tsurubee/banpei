@@ -1,6 +1,6 @@
 import numpy as np
 from banpei.base.model import BaseModel
-
+from banpei.utils import rolling_window
 
 class SST(BaseModel):
     def __init__(self, w, m=2, k=None, L=None):
@@ -121,12 +121,5 @@ class SST(BaseModel):
         return 1 - s[0]
 
     def _extract_matrix(self, data, start, end, w):
-        row = w
-        column = end - start + 1
-        matrix = np.empty((row, column))
-        i = 0
-        for t in range(start, end+1):
-            matrix[:, i] = data[t-1:t-1+row]
-            i += 1
-
+        matrix = self.rolling_window(data[start - 1:end - 1 + w], w).T
         return matrix
