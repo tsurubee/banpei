@@ -134,10 +134,7 @@ class SST(BaseModel):
         P = np.dot(tra_matrix, tra_matrix.T)
         T = tridiagonalize_by_lanczos(P, m, k)
         eigenvalue, eigenvectors = tridiag_eigen(T)
-
-        # `eig()` returns unordered eigenvalues,
-        # so the top-r eigenvectors should be picked carefully
-        return 1 - np.sqrt(np.sum(eigenvectors[0, np.argsort(eigenvalue)[::-1][:self.m]] ** 2))
+        return 1 - np.sum(eigenvectors[0, np.argsort(eigenvalue)[::-1][:self.m]] ** 2)
 
     def _extract_matrix(self, data, start, end, w):
         row = w
