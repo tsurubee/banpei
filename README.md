@@ -41,6 +41,11 @@ raw_data = pd.read_csv('./tests/test_data/periodic_wave.csv')
 data = raw_data['y']
 ```
 
+SST processing can be accelerated using the Lanczos method which is one of Krylov subspace methods by specifying `True` for the `is_lanczos` argument like below.  
+```python
+results = model.detect(data, is_lanczos=True)
+```
+
 ## Real-time monitoring with Bokeh
 Banpei is developed with the goal of constructing the environment of real-time abnormality monitoring.  In order to achieve the goal, Banpei has the function corresponded to the streaming data.  With the help of Bokeh, which is great visualization library, we can construct the simple monitoring tool.   
 Here's a simple demonstration movie of change-point detection of the data trends.
