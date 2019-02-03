@@ -9,9 +9,14 @@ class TestSST(unittest.TestCase):
         self.raw_data = pd.read_csv('tests/test_data/periodic_wave.csv')
         self.data = self.raw_data['y']
 
-    def test_detect(self):
+    def test_detect_by_svd(self):
         model = SST(w=50)
         results = model.detect(self.data)
+        self.assertEqual(len(self.data), len(results))
+
+    def test_detect_by_lanczos(self):
+        model = SST(w=50)
+        results = model.detect(self.data, is_lanczos=True)
         self.assertEqual(len(self.data), len(results))
 
     def test_stream_detect(self):
