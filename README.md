@@ -8,11 +8,8 @@ Anomaly detection is a technique used to identify unusual patterns that do not c
 Python 3.x (2.x is not supported)
 
 ## Installation
-Use the command:
 ```bash
-$ git clone https://github.com/tsurubee/banpei.git
-$ cd banpei
-$ pip install .
+$ pip install banpei
 ```
 After installation, you can import banpei in Python.
 ```
