@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "banpei"
-version = "0.1.0"
+version = "0.1.2"
 description = "Anomaly detection library with Python"
 authors = ["Hirofumi Tsuruta"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6"
 numpy = "^1.19.2"
 pandas = "^1.1.2"
 scipy = "^1.5.2"
