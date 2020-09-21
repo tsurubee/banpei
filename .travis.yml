@@ -1,7 +1,9 @@
 language: python
 python:
-  - "3.6"
+  - "3.8"
+before_install:
+  - pip install poetry
 install:
-  - python setup.py install
+  - poetry install
 script:
-  - python setup.py test
+  - poetry run python -m unittest -v
